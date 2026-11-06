@@ -1,0 +1,10 @@
+INFO - Línea leída: 12
+INFO - Línea leída: 57
+DEBUG - n: 2
+DEBUG - m: 2
+INFO - resultado: 0
+INFO - Línea leída: 57
+DEBUG - n: -1
+DEBUG - m: 0
+WARN - Se devuelve -1
+INFO - Línea leída: 26
