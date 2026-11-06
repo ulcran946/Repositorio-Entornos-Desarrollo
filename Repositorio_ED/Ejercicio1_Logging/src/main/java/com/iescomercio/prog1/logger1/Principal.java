@@ -13,7 +13,8 @@ import org.apache.logging.log4j.Logger;
 
 public class Principal {
 
-	static BufferedWriter bw;
+//	static BufferedWriter bw;
+	private static final Logger LOGGER = LogManager.getLogger();
 	
 	// funcion principal donde se inicia la aplicacion
 	public static void main(String[] args) {
@@ -21,8 +22,7 @@ public class Principal {
 			LocalDate d = LocalDate.now();
 			File f = new File(d.toString() + ".txt");
 			FileWriter fw = new FileWriter(f, true);
-			bw = new BufferedWriter(fw);
-			bw.write("INFO - Línea leída: 12\n");
+			LOGGER.info("Línea leída: 12");
 			long aux;
 
 			do {
@@ -31,8 +31,6 @@ public class Principal {
 					System.out.println(aux);
 				}
 			} while (aux != -1);
-			bw.write("INFO - Línea leída: 26\n");
-			bw.flush();
 		} catch (IOException e) {
 			System.err.println("Error en la E/S");
 		}
@@ -47,14 +45,14 @@ public class Principal {
 		String str = "";
 		str = pideLinea();
 		n = Long.valueOf(str.substring(0, str.indexOf(' ')));
-		bw.write("DEBUG - n: " + n + "\n");
+		LOGGER.debug("n: "+n);
 		m = Integer.valueOf(str.substring(str.lastIndexOf(' ') + 1));
-		bw.write("DEBUG - m: " + m + "\n");
+		LOGGER.debug("m: "+m);
 		if (n != 0 && m != 0) {
-			bw.write("INFO - resultado: " + n % m + "\n");
+			LOGGER.info("resultado: " + n % m);
 			return (n % m);
 		} else {
-			bw.write("WARN - Se devuelve -1\n");
+			LOGGER.warn("Se devuelve -1");
 			return -1;
 		}
 	}
@@ -65,7 +63,7 @@ public class Principal {
 		String str = "";
 		System.out.print("Introduce una linea: ");
 		str = sc.nextLine();
-		bw.write("INFO - Línea leída: 57\n");
+		LOGGER.info("Línea leída: 57");
 		return str;
 	}
 
